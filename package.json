@@ -1,0 +1,63 @@
+{
+  "private": true,
+  "packageManager": "pnpm@7.21.0",
+  "name": "vilectron",
+  "author": "Arpan Saha <https://github.com/arpansaha13>",
+  "description": "Simple Electron-Vite starter template with VueJs",
+  "version": "1.0.0",
+  "main": "dist/main/index.cjs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arpansaha13/vilectron.git"
+  },
+  "bugs": {
+    "url": "https://github.com/arpansaha13/vilectron/issues"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "scripts": {
+    "dev": "vite ./packages/renderer --open",
+    "typecheck": "vue-tsc --project packages/renderer/tsconfig.json --noEmit",
+    "build": "pnpm typecheck && vite build ./packages/renderer",
+    "preview": "vite ./dist/renderer",
+    "test": "pnpm test:renderer && pnpm test:app",
+    "test:app": "vitest run",
+    "test:renderer": "vitest run -r packages/renderer",
+    "electron:dev": "node scripts/watch.mjs",
+    "electron:build": "pnpm typecheck && node scripts/build.mjs",
+    "electron:release": "electron-builder",
+    "app:build": "pnpm electron:build && pnpm electron:release"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.35.1",
+    "@headlessui/vue": "^1.7.7",
+    "@heroicons/vue": "^2.0.13",
+    "@pinia/testing": "^0.0.14",
+    "@unocss/reset": "^0.48.0",
+    "@vitejs/plugin-vue": "^4.0.0",
+    "@vue/test-utils": "^2.2.6",
+    "@vueuse/core": "^9.9.0",
+    "electron": "^22.0.0",
+    "electron-builder": "^23.6.0",
+    "eslint": "^8.33.0",
+    "jsdom": "^20.0.3",
+    "pinia": "^2.0.28",
+    "playwright": "^1.29.1",
+    "postcss": "^8.4.20",
+    "typescript": "^4.9.4",
+    "unocss": "^0.48.0",
+    "unplugin-auto-import": "^0.12.1",
+    "unplugin-vue-components": "^0.22.12",
+    "vite": "^4.0.3",
+    "vite-plugin-pages": "^0.28.0",
+    "vite-plugin-vue-layouts": "^0.7.0",
+    "vitest": "^0.26.3",
+    "vue": "^3.2.45",
+    "vue-router": "^4.1.6",
+    "vue-tsc": "^1.0.19"
+  },
+  "dependencies": {
+    "@chenfengyuan/vue-carousel": "2"
+  }
+}
